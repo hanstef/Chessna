@@ -7,16 +7,16 @@ TEST_OUT = build/test
 OUT = build/chessna
 DEBUG_OUT = build/debug
 
-CC_FLAGS = -std=c++11 -O3 -pthread
+CC_FLAGS = -std=c++17 -O3 -pthread
 
 BUILD_DIR = ./build
 
 main:
-	g++ -o $(OUT) $(FILES) $(CC_FLAGS) 
+	$(CC) -o $(OUT) $(FILES) $(CC_FLAGS) 
 tests:
-	g++ -o $(TEST_OUT) $(TEST_FILES) $(CC_FLAGS)
+	$(CC) -o $(TEST_OUT) $(TEST_FILES) $(CC_FLAGS)
 debug:
-	g++ -g -o $(DEBUG_OUT) $(FILES) $(CC_FLAGS) -Wall 
+	$(CC) -g -o $(DEBUG_OUT) $(FILES) $(CC_FLAGS) -Wall 
 
 
 .PHONY: clean

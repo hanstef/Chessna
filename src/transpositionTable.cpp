@@ -6,6 +6,7 @@
 
 long TranspositionTable::numberOfCurrentEntries;
 long TranspositionTable::numberOfMaxEntries;
+//FIX: allocate on heap, otherwise error when increasing
 HashEntry TranspositionTable::entries[TT_SIZE];
 HashEntry TranspositionTable::testEntry = HashEntry(0, 0, 0, HASH_EXACT, Move());
 
