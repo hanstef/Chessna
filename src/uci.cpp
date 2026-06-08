@@ -29,7 +29,8 @@ void UCI::runUCI() {
 
     while(command != "quit") { 
         std::vector<std::string> args = readCin();
-        command = args.at(0);;
+        if (args.empty()) continue;
+        command = args.at(0);
 
         if(command == "stop") {
             //uci.gameInterface.endSearch();
@@ -77,6 +78,7 @@ std::vector<std::string> UCI::readCin() {
 void UCI::processCommand(std::vector<std::string> args, bool* isProcessing) {
     //std::vector<std::string> args = this->convertInputToArgs(input)
     (*isProcessing) = true;
+    if (args.empty()) return;
     std::string command = args.at(0);
 
     if(command == "uci") {
